@@ -1,19 +1,22 @@
 # Kognitív robotika projekt feladat 
-<div style="text-align:center">
+<p align = "center">
 <img src = "./figures/bme_logo_kicsi.jpg" width = "300" />
+</p>
 
-## Budapesti Műszaki és Gazdaságtudományi Egyetem,
-## Gépészmérnöki Kar
-####  Mechatronika, Optika és Gépészeti Informatika Tanszék
+<h1 align="center" style="margin-top: 0px;">Budapesti Műszaki és Gazdaságtudományi Egyetem </h1>
+
+<h2 align="center" style="margin-top: 0px;">Gépészmérnöki Kar</h2>
+<h3 align="center" style="margin-top: 0px;">Mechatronika, Optika és Gépészeti Informatika Tanszék</h3>
+
 <br/><br/>
 
-### Harkó Csanád - BE35IY
+<h2 align="center" style="margin-top: 0px;">Harkó Csanád - BE35IY</h2>
 
 <br/><br/><br/>
 
-`2023. május 24.`
+<p align = "center">2023. május 24.</p>
 <br/><br/><br/>
-</div>
+</p>
 
 ## Tartalomjegyzék
 1. [Bevezető](# )  

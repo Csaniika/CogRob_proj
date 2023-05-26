@@ -21,9 +21,9 @@
 ## Tartalomjegyzék
 1. [Bevezető](# )  
 2. [Telepítés](# )  
+sudo apt-get install ros-noetic-effort-controllers
 
-
-
+sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers
 
 
 

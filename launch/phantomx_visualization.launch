@@ -7,10 +7,38 @@
     <arg name="paused" value="true"/>
   </include>
 
+  <!-- robot -->
   <param name="robot_description" textfile="$(find phantomx_ros)/urdf/phantomx.urdf" />  
 
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
-    args="-file $(find phantomx_ros)/urdf/phantomx.urdf -urdf -model phantomx -z 0.2" />
+  <!-- Joint_state_controller -->
+  <rosparam file="$(find phantomx_ros)/controller/joint_state_controller.yaml" command="load"/>
+  <node name="joint_state_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller" respawn="false" output="screen"/>
 
+  <!-- Start this controller -->
+  <rosparam file="$(find phantomx_ros)/controller/pid.yaml" command="load"/>
+  <node name="phantomx_controller_spawner" pkg="controller_manager" type="controller_manager" respawn="false" output="screen"
+    args=" spawn 
+           j_c1_lf_position_controller
+           j_c1_rf_position_controller
+           j_c1_lm_position_controller
+           j_c1_rm_position_controller
+           j_c1_lr_position_controller
+           j_c1_rr_position_controller
+           j_thigh_lf_position_controller
+           j_thigh_rf_position_controller
+           j_thigh_lm_position_controller
+           j_thigh_rm_position_controller
+           j_thigh_lr_position_controller
+           j_thigh_rr_position_controller
+           j_tibia_lf_position_controller
+           j_tibia_rf_position_controller
+           j_tibia_lm_position_controller
+           j_tibia_rm_position_controller
+           j_tibia_lr_position_controller
+           j_tibia_rr_position_controller"
+  />
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+    args="-file $(find phantomx_ros)/urdf/phantomx.urdf -urdf -model phantomx -z 0.2" />
 
 </launch>  

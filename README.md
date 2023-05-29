@@ -25,7 +25,12 @@ sudo apt-get install ros-noetic-effort-controllers
 
 sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers
 
+http://wiki.ros.org/simulator_gazebo/Tutorials/SpawningObjectInSimulation
 
 
+roslaunch phantomx_gazebo phantomx_gazebo.launch
 
+sudo apt install ros-$(rosversion -d)-joint-trajectory-controller
 
+rostopic info /j_c1_lf_position_controller/command 
+Type: trajectory_msgs/JointTrajectoryPoint

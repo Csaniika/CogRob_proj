@@ -7,10 +7,11 @@ rospy.init_node('send_joint_angles')
 
 pub = rospy.Publisher('/legs_controller/command', Float64MultiArray, queue_size=1)
 NR = 6
-w = -0.9
+w = -0.3
 tau = 0.9
 a = 0.8
-dt = 0.1
+dt = 0.5
+
 K = [[0, 1, 1, 0, 0, 0],
      [1, 0, 0, 1, 0, 0],
      [1, 0, 0, 1, 1, 0],

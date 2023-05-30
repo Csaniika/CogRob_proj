@@ -7,7 +7,7 @@ rospy.init_node('send_joint_angles')
 
 pub = rospy.Publisher('/legs_controller/command', Float64MultiArray, queue_size=1)
 NR = 6
-w = -0.3
+w = -0.9
 tau = 0.9
 a = 0.8
 dt = 0.1
@@ -36,12 +36,9 @@ joint_positions_0 = [   np.pi/6, -np.pi/6, 0.0, 0.0, -np.pi/6, np.pi/6,
 joint_positions_max = joint_positions_0 + np.ones(18) * np.pi/10
 joint_positions_min = joint_positions_0 - np.ones(18) * np.pi/10
 
-joint_positions_max[:6:2] = joint_positions_max[:6:2] - 2 *  np.ones(3) * np.pi/8
-joint_positions_min[:6:2] = joint_positions_min[:6:2] + 2 *  np.ones(3) * np.pi/8
-
-joint_positions_next = np.zeros(18)
-print(joint_positions_max)
-print(joint_positions_min)
+#two side mirorring coxas
+joint_positions_max[:6:2] = joint_positions_max[:6:2] - 2 *  np.ones(3) * np.pi/10
+joint_positions_min[:6:2] = joint_positions_min[:6:2] + 2 *  np.ones(3) * np.pi/10
 
 def Phi_0values():
     Phi = np.zeros(6)
@@ -68,27 +65,43 @@ def euler(dt, i):
     return dPhi
 
 def phase2rad(i, shift):
-    if i%2 == 0 & i < 6:
-        return joint_positions_min[i] - (1 + np.cos(Phi[i%6] + shift)) * np.abs(np.abs(joint_positions_max[i])-np.abs(joint_positions_min[i])) / 2    
+    if i < 6:
+        if i%2 == 0: #coxa where min>max
+            return joint_positions_min[i] - (1 + np.cos(Phi[i] + shift)) * np.abs(joint_positions_min[i]-joint_positions_max[i]) / 2    
+        else: #coxa where min<max
+            return joint_positions_min[i] + (1 + np.cos(Phi[i] + shift)) * np.abs(joint_positions_max[i]-joint_positions_min[i]) / 2    
     else:
-        return joint_positions_min[i] + (1 + np.cos(Phi[i%6] + shift)) * np.abs(np.abs(joint_positions_max[i])-np.abs(joint_positions_min[i])) / 2    
-  
+        return joint_positions_min[i] + (1 + np.cos(Phi[i%6] + shift)) * np.abs(joint_positions_max[i]-joint_positions_min[i]) / 2    
+
 Phi = Phi_0values()
+
+print(joint_positions_min)
+print(joint_positions_max)
+
 
 import time
 
+
+t_end = time.time() + 1
+while time.time() < t_end:
+    pub.publish(Float64MultiArray(data=joint_positions_min))
+t_end = time.time() + 1
+while time.time() < t_end:
+    pub.publish(Float64MultiArray(data=joint_positions_max))
 t_end = time.time() + 5
 while time.time() < t_end:
     pub.publish(Float64MultiArray(data=joint_positions_0))
 
-rospy.sleep(5.)
+joint_positions_next = joint_positions_0
 
 while not rospy.is_shutdown():
     for i in range(NR):
         Phi[i] += euler(dt, i)
+        #print(Phi)
     for i in range(NR):
-        joint_positions_next[i] = phase2rad(i, 0)
-        #joint_positions_next[i+NR] = phase2rad(i+NR, 3*np.pi/2)
+        joint_positions_next[i] = phase2rad(i, -3*np.pi/2)
+        joint_positions_next[i+NR] = phase2rad(i+NR, 0)#3*np.pi/2)
+        #print(joint_positions_next)
         #joint_positions_next[i+2*NR] = phase2rad(i, 6*np.pi/4)
     #print(joint_positions_next[6:12])
     pub.publish(Float64MultiArray(data=joint_positions_next))

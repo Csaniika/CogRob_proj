@@ -49,7 +49,7 @@ a robot testéhez, így a teljes robot 18 csuklóval bír.
 
 A szimulációhoz használt virtuális robot modellje [URDF fájlként érhető el.](https://github.com/HumaRobotics/phantomx_description)
 
-<img src = "./figures/phantomx.jpg" height = "300" /><img src = "./figures/phantomx_simu.png" height = "300" />
+<img src = "./figures/phantomx.jpg" height = "200" /><img src = "./figures/phantomx_simu.png" height = "200" />
 
 # 2. Telepítés
 
@@ -77,7 +77,7 @@ A projekt felépítése az alábbi főbb lépésekre bontható:
 
 Az URDF fájl betöltése a `/launch/phantomx_gazebo.launch` fájlban található, az üres világgal együtt. Az alábbi gif szemlélteti ekkor, hogyan vielkedik a robot, tehát szükség van, a következő fejezet alapján, egy a csuklókat vezérlő csomagra.
 
-<img src = "./figures/phantomx_simu_nocontroller.gif" height = "300" />
+<img src = "./figures/phantomx_simu_nocontroller.gif" height = "200" />
 
 ## 3.2. ROS control - csomag
 

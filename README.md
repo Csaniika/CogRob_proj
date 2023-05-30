@@ -49,8 +49,7 @@ a robot testéhez, így a teljes robot 18 csuklóval bír.
 
 A szimulációhoz használt virtuális robot modellje [URDF fájlként érhető el.](https://github.com/HumaRobotics/phantomx_description)
 
-<img src = "./figures/phantomx.jpg" height = "150" />
-<img src = "./figures/phantomx_simu.png" height = "150" />
+<img src = "./figures/phantomx.jpg" height = "150" /><img src = "./figures/phantomx_simu.png" height = "150" />
 
 # 2. Telepítés
 

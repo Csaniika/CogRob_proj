@@ -124,6 +124,6 @@ A vezérlő node-ban lévő paramétereket próbálgatva az alábbihoz hasonló 
 
 
 # Hivatkozások
-### [1] [Robotrendszerek (BMEGEMINMRL) tárgy 9.-10. heti anyaga](https://github.com/MOGI-ROS/Week-9-10-Simple-arm)
+[1] [Robotrendszerek (BMEGEMINMRL) tárgy 9.-10. heti anyaga](https://github.com/MOGI-ROS/Week-9-10-Simple-arm)
 
-### [2] Harkó Csanád, "Hatlábú robot kísérleti tanulmányozása: önszerveződő dinamika csatolt neuronok által", 2022
+[2] Harkó Csanád, "Hatlábú robot kísérleti tanulmányozása: önszerveződő dinamika csatolt neuronok által", 2022

@@ -14,7 +14,7 @@
 
 <br/><br/><br/>
 
-<p align = "center">2023. május 24.</p>
+<p align = "center">2023. május 30.</p>
 <br/><br/><br/>
 </p>
 

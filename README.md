@@ -10,7 +10,7 @@
 
 <br/><br/>
 
-<h2 align="center" style="margin-top: 0px;">Harkó Csanád - BE35IY</h2>
+<h2 align="center" style="margin-top: 0px;">Harkó Csanád</h2>
 
 <br/><br/><br/>
 

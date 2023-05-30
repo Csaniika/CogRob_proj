@@ -122,6 +122,7 @@ rosrun phantomx_ros set_angles.py
 
 A vezérlő node-ban lévő paramétereket próbálgatva az alábbihoz hasonló haladó mozgások hozhatóak létre, megfigyelhető a szinkronálódás jelensége is.
 
+[![YouTube video](./figures/thumb.png)](https://youtu.be/CKpXNxa1QiI)
 
 # Hivatkozások
 [1] [Robotrendszerek (BMEGEMINMRL) tárgy 9.-10. heti anyaga](https://github.com/MOGI-ROS/Week-9-10-Simple-arm)

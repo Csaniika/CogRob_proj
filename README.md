@@ -92,9 +92,9 @@ A csuklókat vezérlő node a `/scripts/set_angles.py` python fájl. Ebbe van im
 Szinkornizációs jelenségek modellezésére gyakran használunk fázisoszcillátorokat. Szinkronizáció alatt jelen esetben olyan jelenségeket értünk, amely során csatolt oszcillátorok fázisai között kialakul egy időben állandó fáziskülönbség. A hatlábú robot vezérléséhez 6 darab csatolt fázisoszcillátorból álló taszító Kuramoto-
 rendszert alkalmazunk. A 6 rotátor egy-egy lábat írányít, mind az előre-hátra mind a fel-le mozgásért felelős csuklók csuklószögei
 a rotátorok fázisaiból vannak kiszámolva. Egy oszcillátort leíró egyenlet:
-$$
+```math
 \tau \dot\theta_i = 1 + a \cos(\theta_i) + \sum_{i\neq j}^{} K_{ij}\sin(\theta_j-\theta_i),
-$$
+```
 ahol $a$ kontrollparaméter és a $\tau$ időkonstans értéke rögzített, $a = 0.3$ és $\tau = 0.9 $. 
 A 6 darab oszcillátor egymáshoz csatolását a $K$ taszító csatolási mátrix írja le. Az egyenletrendszer euler módszerrel kerül megoldásra, majd a rotátorok fázisai egy előre meghatározott min-max intervallumba van átskálázva, ezek már a tényleges csuklók mozgás intervallumai.
 További részletekért [ [2](#hivatkozások)]

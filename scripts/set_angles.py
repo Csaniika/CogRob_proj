@@ -9,7 +9,7 @@ rospy.init_node('send_joint_angles')
 pub = rospy.Publisher('/legs_controller/command', Float64MultiArray, queue_size=1)
 
 NR = 6 #nr of rotators (legs)
-w = -0.5 #weight
+w = -0.2 #weight
 tau = 0.9 #time constant
 a = 0.3
 dt = 0.1
